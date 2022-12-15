@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  backend:
+    container_name: project-api
+    build:
+      context: ./api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api:/usr/src/api
+    command: uvicorn main:app --host 0.0.0.0 --port 3000 --reload
+    networks:
+      - project-network
+  # frontend:
+  #   container_name: project-front
+  #   build:
+  #     context: ./client
+  #     target: development
+  #   ports:
+  #     - "3001:3001"
+  #   volumes:
+  #     - ./client:/usr/src/app
+  #     # - ./client/node_modules
+  #   networks:
+  #     - project-network
+  #   command: yarn start
+networks:
+  project-network:
+    driver: bridge

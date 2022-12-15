@@ -1,0 +1,5 @@
+[ormucocloud]
+199.91.191.145
+
+[ormucocloud:vars]
+ansible_user=ubuntu

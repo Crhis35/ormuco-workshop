@@ -1,0 +1,38 @@
+mutation Login($input: LoginUserInput!) {
+  login(input: $input) {
+    id
+  }
+}
+
+query getNetworks($token: String!) {
+  networks(token: $token) {
+    id
+    name
+    status
+  }
+}
+query getFlavors($token: String!) {
+  flavors(token: $token) {
+    id
+    name
+  }
+}
+query getImages($token: String!) {
+  images(token: $token) {
+    id
+    name
+  }
+}
+query getServers($token: String!) {
+  servers(token: $token) {
+    id
+    name
+    status
+    image {
+      id
+    }
+  }
+}
+mutation createServer($input: CreateInstance!, $token: String!) {
+  createServer(input: $input, token: $token)
+}
